@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mooon Floral — ดอกไม้สวยงาม จัดด้วยใจ</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo"><img src="images/logo-white.png" alt="Mooon Floral Studio" class="logo-img logo-dark"></a>
+  <ul class="nav-links">
+    <li><a href="index.html">หน้าแรก</a></li>
+    <li><a href="shop.html">ร้านค้า</a></li>
+    <li><a href="about.html">เกี่ยวกับเรา</a></li>
+    <li><a href="contact.html">ติดต่อเรา</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="cart-btn" onclick="openCart()" aria-label="เปิดตะกร้า">
+      🛒
+      <span class="cart-count" id="cart-count-nav"></span>
+    </button>
+    <button class="hamburger" onclick="toggleNav()" aria-label="เมนู">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <p class="hero-eyebrow">🌸 สดใหม่ จัดด้วยมือทุกวัน</p>
+    <h1>ที่ที่ทุกดอกไม้<br>เล่า<em>เรื่องราว</em></h1>
+    <p>ช่อดอกไม้และงานประดับที่จัดแต่งด้วยฝีมือ สำหรับทุกโอกาส ตั้งแต่ความสุขเล็กน้อยจนถึงช่วงเวลาพิเศษที่สุดในชีวิต</p>
+    <div class="hero-btns">
+      <a href="shop.html" class="btn btn-primary">ช้อปเลย →</a>
+      <a href="about.html" class="btn btn-outline">เรื่องราวของเรา</a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED PRODUCTS -->
+<section style="background:#fff;">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">ขายดี</p>
+      <h2>รายการยอดนิยม</h2>
+      <p>ช่อดอกไม้ที่ลูกค้าชื่นชอบมากที่สุด จัดสดใหม่พร้อมส่งถึงมือคุณ</p>
+    </div>
+    <div class="products-grid">
+
+      <div class="product-card" data-category="bouquet">
+        <div class="product-img">🌹</div>
+        <div class="product-body">
+          <div class="product-tag">ช่อดอกไม้</div>
+          <div class="product-name">ความโรแมนติกสีแดง</div>
+          <div class="product-desc">กุหลาบแดงคลาสสิกพร้อมยูคาลิปตัสและดอกหมอกขาว</div>
+          <div class="product-footer">
+            <span class="product-price">฿2,050</span>
+            <button class="add-to-cart-btn" onclick="addToCart({id:'p1',name:'ความโรแมนติกสีแดง',price:2050,emoji:'🌹'})">เพิ่มลงตะกร้า</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="arrangement">
+        <div class="product-img">🌸</div>
+        <div class="product-body">
+          <div class="product-tag">จัดแจกัน</div>
+          <div class="product-name">สวนสีชมพู</div>
+          <div class="product-desc">โบตั๋น ราณันคูลัส และดัสตี้มิลเลอร์ในโทนสีชมพูอ่อนฝัน</div>
+          <div class="product-footer">
+            <span class="product-price">฿2,550</span>
+            <button class="add-to-cart-btn" onclick="addToCart({id:'p2',name:'สวนสีชมพู',price:2550,emoji:'🌸'})">เพิ่มลงตะกร้า</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="seasonal">
+        <div class="product-img">🌻</div>
+        <div class="product-body">
+          <div class="product-tag">ตามฤดูกาล</div>
+          <div class="product-name">ทุ่งแสงแดด</div>
+          <div class="product-desc">ทานตะวันสดใสและเยอบีร่าสีส้มช่วยนำแสงอาทิตย์เข้าบ้าน</div>
+          <div class="product-footer">
+            <span class="product-price">฿1,600</span>
+            <button class="add-to-cart-btn" onclick="addToCart({id:'p3',name:'ทุ่งแสงแดด',price:1600,emoji:'🌻'})">เพิ่มลงตะกร้า</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-category="bouquet">
+        <div class="product-img">💐</div>
+        <div class="product-body">
+          <div class="product-tag">ช่อดอกไม้</div>
+          <div class="product-name">ความฝันแห่งดอกไม้ป่า</div>
+          <div class="product-desc">ดอกไม้ป่าตามฤดูกาลผสมกันอย่างอิสระ มัดด้วยเชือกธรรมชาติ</div>
+          <div class="product-footer">
+            <span class="product-price">฿1,350</span>
+            <button class="add-to-cart-btn" onclick="addToCart({id:'p4',name:'ความฝันแห่งดอกไม้ป่า',price:1350,emoji:'💐'})">เพิ่มลงตะกร้า</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div style="text-align:center;margin-top:2.5rem;">
+      <a href="shop.html" class="btn btn-outline">ดูดอกไม้ทั้งหมด</a>
+    </div>
+  </div>
+</section>
+
+<!-- BANNER -->
+<div class="banner">
+  <h2>ส่งฟรีเมื่อสั่งซื้อครบ ฿2,800</h2>
+  <p>รับส่งวันเดียวกันสำหรับคำสั่งซื้อก่อน 12.00 น. ส่งสดถึงหน้าบ้านคุณ</p>
+  <a href="shop.html" class="btn btn-rose" style="display:inline-flex;">สั่งซื้อเลย →</a>
+</div>
+
+<!-- WHY US -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">ทำไมต้องเลือก Mooon Floral</p>
+      <h2>ดอกไม้ที่มีความตั้งใจ</h2>
+    </div>
+    <div class="values-grid" style="max-width:900px;">
+      <div class="value-card">
+        <div class="value-icon">✂️</div>
+        <h3>จัดสดใหม่ทุกวัน</h3>
+        <p>ช่อดอกไม้ทุกช่อถูกจัดสดใหม่โดยช่างดอกไม้มืออาชีพในเช้าวันจัดส่ง</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🌿</div>
+        <h3>แหล่งผลิตยั่งยืน</h3>
+        <p>เราร่วมมือกับเกษตรกรท้องถิ่นและผู้ผลิตที่ได้รับการรับรองเพื่อรักษาสิ่งแวดล้อม</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🚚</div>
+        <h3>ส่งวันเดียวกัน</h3>
+        <p>สั่งก่อนเที่ยง รับประกันส่งถึงมือในวันเดียวกันภายในพื้นที่ให้บริการ</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">💌</div>
+        <h3>ใส่ใจทุกรายละเอียด</h3>
+        <p>เพิ่มการ์ดเขียนด้วยมือกับทุกคำสั่งซื้อโดยไม่มีค่าใช้จ่ายเพิ่มเติม</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="images/logo-white.png" alt="Mooon Floral Studio" class="logo-img">
+      <p>ดอกไม้จัดแต่งอย่างสวยงามสำหรับทุกช่วงเวลา ทำด้วยความรัก ส่งด้วยความใส่ใจ</p>
+    </div>
+    <div class="footer-col">
+      <h4>ร้านค้า</h4>
+      <ul>
+        <li><a href="shop.html">ดอกไม้ทั้งหมด</a></li>
+        <li><a href="shop.html">ช่อดอกไม้</a></li>
+        <li><a href="shop.html">จัดแจกัน</a></li>
+        <li><a href="shop.html">ตามฤดูกาล</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>บริษัท</h4>
+      <ul>
+        <li><a href="about.html">เกี่ยวกับเรา</a></li>
+        <li><a href="contact.html">ติดต่อเรา</a></li>
+        <li><a href="contact.html">สั่งทำพิเศษ</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Mooon Floral. สงวนลิขสิทธิ์ทุกประการ</div>
+</footer>
+
+<!-- CART SIDEBAR -->
+<div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
+<aside class="cart-sidebar" id="cart-sidebar">
+  <div class="cart-header">
+    <h3>ตะกร้าสินค้า 🛒</h3>
+    <button class="cart-close" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cart-items"></div>
+  <div class="cart-footer">
+    <div class="cart-subtotal">
+      <span>ยอดรวม</span>
+      <span id="cart-subtotal">฿0</span>
+    </div>
+    <a href="checkout.html" class="btn btn-primary" style="width:100%;justify-content:center;display:flex;">ชำระเงิน →</a>
+    <button class="btn btn-outline" style="width:100%;justify-content:center;" onclick="closeCart()">ช้อปต่อ</button>
+  </div>
+</aside>
+
+<script src="js/main.js"></script>
+</body>
+</html>
