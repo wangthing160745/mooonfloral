@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ยืนยันคำสั่งซื้อ — Mooon Floral</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo"><img src="images/logo-white.png" alt="Mooon Floral Studio" class="logo-img logo-dark"></a>
+  <ul class="nav-links">
+    <li><a href="index.html">หน้าแรก</a></li>
+    <li><a href="shop.html">ร้านค้า</a></li>
+    <li><a href="about.html">เกี่ยวกับเรา</a></li>
+    <li><a href="contact.html">ติดต่อเรา</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="cart-btn" onclick="openCart()" aria-label="เปิดตะกร้า">
+      🛒
+      <span class="cart-count"></span>
+    </button>
+    <button class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<section>
+  <div class="success-page">
+    <div class="success-icon">🌸</div>
+    <h1>ยืนยันคำสั่งซื้อแล้ว!</h1>
+    <p>ขอบคุณที่สั่งซื้อกับเรา ช่างดอกไม้ของเรากำลังลงมือจัดดอกไม้สวยๆ ให้คุณแล้ว คุณจะได้รับอีเมลยืนยันในไม่ช้า</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+      <a href="shop.html" class="btn btn-primary">ช้อปต่อ →</a>
+      <a href="index.html" class="btn btn-outline">กลับหน้าแรก</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="images/logo-white.png" alt="Mooon Floral Studio" class="logo-img">
+      <p>ดอกไม้จัดแต่งอย่างสวยงามสำหรับทุกช่วงเวลา ทำด้วยความรัก ส่งด้วยความใส่ใจ</p>
+    </div>
+    <div class="footer-col">
+      <h4>ร้านค้า</h4>
+      <ul>
+        <li><a href="shop.html">ดอกไม้ทั้งหมด</a></li>
+        <li><a href="shop.html">ช่อดอกไม้</a></li>
+        <li><a href="shop.html">จัดแจกัน</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>บริษัท</h4>
+      <ul>
+        <li><a href="about.html">เกี่ยวกับเรา</a></li>
+        <li><a href="contact.html">ติดต่อเรา</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Mooon Floral. สงวนลิขสิทธิ์ทุกประการ</div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
