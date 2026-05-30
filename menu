@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>เมนูดอกไม้ — Mooon Floral</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ── SIZE BADGE ── */
+    .size-badge {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 32px; height: 32px; border-radius: 50%;
+      font-size: 0.7rem; font-weight: 700;
+      position: absolute; top: 10px; left: 10px; z-index: 2;
+    }
+    .size-xs { background: #D4E8C2; color: #3A6B1A; }
+    .size-s  { background: #FAD9D9; color: #8B2020; }
+    .size-m  { background: #D9EAF7; color: #1A4B7A; }
+
+    /* ── MENU PRODUCT CARD ── */
+    .menu-card {
+      background: #fff; border-radius: 16px; overflow: hidden;
+      box-shadow: var(--shadow); transition: transform 0.25s, box-shadow 0.25s;
+      position: relative;
+    }
+    .menu-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); }
+
+    .menu-thumb {
+      width: 100%; aspect-ratio: 1 / 1;
+      overflow: hidden; position: relative;
+      background: var(--blush);
+    }
+    .menu-thumb img {
+      position: absolute;
+      width: 400%;
+      height: auto;
+    }
+
+    .menu-card .product-body { padding: 1rem 1.1rem 1.2rem; }
+    .menu-card .product-name { font-size: 1rem; margin-bottom: 0.25rem; }
+    .menu-card .product-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 0.75rem; }
+
+    /* ── SIZE FILTER ── */
+    .size-legend {
+      display: flex; gap: 1rem; justify-content: center;
+      flex-wrap: wrap; margin-bottom: 0.5rem;
+    }
+    .size-info {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; color: var(--gray);
+    }
+    .size-dot {
+      width: 10px; height: 10px; border-radius: 50%;
+    }
+
+    /* ── CATALOG SECTION ── */
+    .catalog-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+      max-width: 1000px; margin: 0 auto;
+    }
+    .catalog-img {
+      width: 100%; border-radius: 16px;
+      box-shadow: var(--shadow); transition: transform 0.2s;
+      cursor: zoom-in;
+    }
+    .catalog-img:hover { transform: scale(1.02); }
+
+    @media (max-width: 640px) {
+      .catalog-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo"><img src="images/logo-white.png" alt="Mooon Floral Studio" class="logo-img logo-dark"></a>
+  <ul class="nav-links">
+    <li><a href="index.html">หน้าแรก</a></li>
+    <li><a href="menu.html">เมนู</a></li>
+    <li><a href="shop.html">ร้านค้า</a></li>
+    <li><a href="about.html">เกี่ยวกับเรา</a></li>
+    <li><a href="contact.html">ติดต่อเรา</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="cart-btn" onclick="openCart()" aria-label="เปิดตะกร้า">
+      🛒 <span class="cart-count"></span>
+    </button>
+    <button class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <h1>เมนูดอกไม้</h1>
+  <p>ดอกไม้จัดแต่งด้วยมือ หลากหลายไซส์ ราคาเริ่มต้น ฿160</p>
+</div>
+
+<!-- SIZE LEGEND + FILTER -->
+<section style="padding-bottom:0;">
+  <div class="container">
+    <div class="size-legend">
+      <div class="size-info"><div class="size-dot" style="background:#D4E8C2;"></div> <strong>XS</strong> — ช่อเล็ก เหมาะเป็นของฝาก</div>
+      <div class="size-info"><div class="size-dot" style="background:#FAD9D9;"></div> <strong>S</strong> — ช่อกลางเล็ก สำหรับวันพิเศษ</div>
+      <div class="size-info"><div class="size-dot" style="background:#D9EAF7;"></div> <strong>M</strong> — ช่อใหญ่ อลังการ</div>
+    </div>
+    <div class="filter-bar" style="margin-top:1.5rem;">
+      <button class="filter-btn active" data-size="all" onclick="filterSize('all')">ทั้งหมด</button>
+      <button class="filter-btn" data-size="xs" onclick="filterSize('xs')">XS</button>
+      <button class="filter-btn" data-size="s" onclick="filterSize('s')">S</button>
+      <button class="filter-btn" data-size="m" onclick="filterSize('m')">M</button>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT GRID -->
+<section>
+  <div class="container">
+    <div class="products-grid">
+
+      <!-- ── MENU 1 · ROW 1 ── -->
+
+      <!-- 1: XS 360฿ white bouquet -->
+      <div class="menu-card" data-size="xs">
+        <div class="menu-thumb">
+          <img src="images/menu-1.png" style="left:0%;top:-28%;">
+        </div>
+        <span class="size-badge size-xs">XS</span>
+        <div class="product-body">
+          <div class="product-tag">ช่อดอกไม้</div>
+          <div class="product-name">ช่อกุหลาบขาวมินิ</div>
+          <div class="product-desc">ช่อกุหลาบขาวสดใส ห่อด้วยกระดาษพรีเมียม เหมาะเป็นของฝาก</div>
+          <div class="product-footer">
+            <span class="product-price">฿360</span>
+            <button class="add-to-cart-btn" onclick="addToCart({id:'m1',name:'ช่อกุหลาบขาวมินิ (XS)',price:360,emoji:'🌹'})">เพิ่มลงตะกร้า</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2: S 1,200฿ red roses -->
+      <div class="menu-card" data-size="s">
+        <div class="menu-thumb">
+          <img src="images/menu-1.png" style="left:-100%;top:-28%;">
+        </div>
+        <span class="size-badge size-s">S</span>
+        <div class="product-body">
+          <div class="product-tag">ช่อดอกไม้</div>
+          <div class="product-name">กุหลาบแดงพรีเมียม</div>
+          <div class="product-desc">กุหลาบแดงสดทรงกลม จัดอย่างหรูหรา สื่อความรักได้สมบูรณ์แบบ</div>
+          <div class="product-footer">
+            <span class="product-price">฿1,200</span>
+            <button class="add-to-cart-btn" onclick="addToCart({id:'m2',name:'กุหลาบแดงพรีเมียม (S)',price:1200,emoji:'🌹'})">เพิ่มลงตะกร้า</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3: M 750฿ blue hydrangea -->
+      <div class="menu-card" data-size="m">
+        <div class="menu-thumb">
+          <img src="images/menu-1.png" style="left:-200%;top:-28%;">
+        </div>
+        <span class="size-badge size-m">M</span>
+        <div class="product-body">
+          <div class="product-tag">ช่อดอกไม้</div>
+          <div class="product-name">ไฮเดรนเยียสีฟ้า</div>
+          <div class="product-desc">ไฮเดรนเยียสีฟ้าอมม่วง อ่อนหวาน ดูสงบและสวยงาม</div>
+          <div class="product-footer">
+            <span class="product-price">฿750</span>
+            <button class="add-to-cart-btn" onclick="addToCart({id:'m3',name:'ไฮเดรนเยียสีฟ้า (M)',price:750,emoji:'💐'})">เพิ่มลงตะกร้า</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4: M 1,300฿ red roses with ribbon -->
+      <div class="menu-card" data-size="m">
+        <div class="menu-thumb">
+          <img src="images/menu-1.png" style="left:-300%;top:-28%;">
+        </div>
+        <span class="size-badge size-m">M</span>
+        <div class="product-body">
+          <div class="product-tag">ช่อดอกไม้</div>
+          <div class="product-name">กุหลาบแดงริบบิ้น</div>
+          <div class="product-desc">กุหลาบแดงช่อสูง ตกแต่งด้วยริบบิ้นหรูหรา โดดเด่นและน่าประทับใจ</div>
+          <div class="product-footer">
+            <span class="product-price">฿1,300</span>
+            <button class="add-to-cart-btn" onclick="addToCart({id:'m4',name:'กุหลาบแดงริบบิ้น (M)',price:1300,emoji:'🌹'})">เพิ่มลงตะกร้า</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── MENU 1 · ROW 2 ── -->
+
+      <!-- 5: S 660฿ white roses dark wrap -->
+      <div class="menu-card" data-size="s">
+        <div class="menu-thumb">
+          <img src="images/menu-1.png" style="left:0%;top:-128%;">
+        </div>
+        <span class="size-badge size-s">S</span>
+        <div class="product-body">
+          <div class="product-tag">ช่อดอกไม้</div>
+          <div class="product-name">กุหลาบขาวมอนโนโทน</div>
+          <div class="product-desc">กุหลาบขาวห่อด้วยกระดาษสีดำ คอนทราสต์สวยงามและทันสมัย</div>
+          <div class="product-footer">
+            <span class="product-price">฿660</span>
+            <button class="add-to-cart-btn" onclick="addToCart({id:'m5',name:'กุหลาบขาวมอนโนโทน (S)',price:660,emoji:'🌹'})">เพิ่มลงตะกร้า</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6: XS 300฿ yellow gerbera -->
+      <div class="menu-card" data-size="xs">
+        <div class="menu-thumb">
+          <img src="images/menu-1.png" style="left:-100%;top:-128%;">
+        </div>
+        <span class="size-badge size-xs">XS</span>
+        <div class="product-body">
+          <div class="product-tag">ช่อดอกไม้</div>
+          <div class="product-name">เยอบีร่าเหลืองสดใส</div>
+          <div class="product-desc">เยอบีร่าเหลืองและทานตะวันมินิ สีสันสดใสให้พลังงานแห่งความสุข</div>
+          <div class="product-footer">
+            <span class="product-price">฿300</span>
+            <button class="add-to-cart-btn" onclick="addToCart({id:'m6',name:'เยอบีร่าเหลืองสดใส (XS)',price:300,emoji:'🌻'})">เพิ่มลงตะกร้า</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7: M 1,500฿ mixed pink -->
+      <div class="menu-card" data-size="m">
+        <div class="menu-thumb">
+          <img src="images/menu-1.png" style="left:-200%;top:-128%;">
+        </div>
+        <span class="size-badge size-m">M</span>
+        <div class="product-body">
+          <div class="product-tag">ช่อดอกไม้</div>
+          <div class="product-name">มิกซ์ชมพูพาสเทล</div>
+          <div class="product-desc">กุหลาบชมพู เยอบีร่า ผสมดอกไม้หลากชนิดในโทนชมพูอ่อน</div>
+          <div class="product-footer">
+            <span class="product-price">฿1,500</span>
+            <button class="add-to-cart-btn" onclick="addToCart({id:'m7',name:'มิกซ์ชมพูพาสเทล (M)',price:1500,emoji:'🌸'})">เพิ่มลงตะกร้า</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8: XS 160฿ sunflower -->
+      <div class="menu-card" data-size="xs">
+        <div class="menu-thumb">
+          <img src="images/menu-1.png" style="left:-300%;top:-128%;">
+        </div>
+        <span class="size-badge size-xs">XS</span>
+        <div class="product-body">
+          <div class="product-tag">ช่อดอกไม้</div>
+          <div class="product-name">ทานตะวันมินิ</div>
+          <div class="product-desc">ทานตะวันดอกเดี่ยว ห่อด้วยกระดาษคราฟต์ เรียบง่ายแต่น่ารัก</div>
+          <div class="product-footer">
+            <span class="product-price">฿160</span>
+            <button class="add-to-cart-btn" onclick="addToCart({id:'m8',name:'ทานตะวันมินิ (XS)',price:160,emoji:'🌻'})">เพิ่มลงตะกร้า</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── MENU 2 · ROW 1 ── -->
+
+      <!-- 9: M 3,792฿ premium arrangement -->
+      <div class="menu-card" data-size="m">
+        <div class="menu-thumb">
+          <img src="images/menu-2.png" style="left:0%;top:-28%;">
+        </div>
+        <span class="size-badge size-m">M</span>
+        <div class="product-body">
+          <div class="product-tag">จัดแจกัน</div>
+          <div class="product-name">พรีเมียม อาร์เรนจ์เมนต์</div>
+          <div class="product-desc">การจัดดอกไม้สุดอลังการหลากสี ในแจกันสีดำดูมีคลาส</div>
+          <div class="product-footer">
+            <span class="product-price">฿3,792</span>
+            <button class="add-to-cart-btn" onclick="addToCart({id:'m9',name:'พรีเมียม อาร์เรนจ์เมนต์ (M)',price:3792,emoji:'💐'})">เพิ่มลงตะกร้า</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10: M 2,480฿ orange dahlia -->
+      <div class="menu-card" data-size="m">
+        <div class="menu-thumb">
+          <img src="images/menu-2.png" style="left:-100%;top:-28%;">
+        </div>
+        <span class="size-badge size-m">M</span>
+        <div class="product-body">
+          <div class="product-tag">ช่อดอกไม้</div>
+          <div class="product-name">ดาลิอาส้มพีช</div>
+          <div class="product-desc">ดาลิอาและดอกไม้โทนส้มพีช อบอุ่น หรูหรา และน่าหลงใหล</div>
+          <div class="product-footer">
+            <span class="product-price">฿2,480</span>
+            <button class="add-to-cart-btn" onclick="addToCart({id:'m10',name:'ดาลิอาส้มพีช (M)',price:2480,emoji:'🌸'})">เพิ่มลงตะกร้า</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 11: M 2,380฿ blue wildflower -->
+      <div class="menu-card" data-size="m">
+        <div class="menu-thumb">
+          <img src="images/menu-2.png" style="left:-200%;top:-28%;">
+        </div>
+        <span class="size-badge size-m">M</span>
+        <div class="product-body">
+          <div class="product-tag">ช่อดอกไม้</div>
+          <div class="product-name">ไวลด์ฟลาวเวอร์บลู</div>
+          <div class="product-desc">ดอกไม้ป่าโทนฟ้าขาว ดูโรแมนติกและเป็นธรรมชาติ</div>
+          <div class="product-footer">
+            <span class="product-price">฿2,380</span>
+            <button class="add-to-cart-btn" onclick="addToCart({id:'m11',name:'ไวลด์ฟลาวเวอร์บลู (M)',price:2380,emoji:'💐'})">เพิ่มลงตะกร้า</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 12: M 2,220฿ pink orange mix -->
+      <div class="menu-card" data-size="m">
+        <div class="menu-thumb">
+          <img src="images/menu-2.png" style="left:-300%;top:-28%;">
+        </div>
+        <span class="size-badge size-m">M</span>
+        <div class="product-body">
+          <div class="product-tag">ช่อดอกไม้</div>
+          <div class="product-name">ชมพูส้มมิกซ์</div>
+          <div class="product-desc">ดอกไม้โทนชมพูส้มผสมกัน สีสันสดใสและเต็มไปด้วยพลังงานบวก</div>
+          <div class="product-footer">
+            <span class="product-price">฿2,220</span>
+            <button class="add-to-cart-btn" onclick="addToCart({id:'m12',name:'ชมพูส้มมิกซ์ (M)',price:2220,emoji:'🌸'})">เพิ่มลงตะกร้า</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── MENU 2 · ROW 2 ── -->
+
+      <!-- 13: S 700฿ pink roses -->
+      <div class="menu-card" data-size="s">
+        <div class="menu-thumb">
+          <img src="images/menu-2.png" style="left:0%;top:-128%;">
+        </div>
+        <span class="size-badge size-s">S</span>
+        <div class="product-body">
+          <div class="product-tag">ช่อดอกไม้</div>
+          <div class="product-name">กุหลาบชมพูอ่อน</div>
+          <div class="product-desc">กุหลาบชมพูพาสเทลอ่อนโยน เหมาะสำหรับวันเกิดและวันพิเศษ</div>
+          <div class="product-footer">
+            <span class="product-price">฿700</span>
+            <button class="add-to-cart-btn" onclick="addToCart({id:'m13',name:'กุหลาบชมพูอ่อน (S)',price:700,emoji:'🌷'})">เพิ่มลงตะกร้า</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 14: M 1,300฿ white roses -->
+      <div class="menu-card" data-size="m">
+        <div class="menu-thumb">
+          <img src="images/menu-2.png" style="left:-100%;top:-128%;">
+        </div>
+        <span class="size-badge size-m">M</span>
+        <div class="product-body">
+          <div class="product-tag">ช่อดอกไม้</div>
+          <div class="product-name">กุหลาบขาวพรีเมียม</div>
+          <div class="product-desc">กุหลาบขาวสะอาด บริสุทธิ์ ห่อด้วยกระดาษครีมหรูหรา</div>
+          <div class="product-footer">
+            <span class="product-price">฿1,300</span>
+            <button class="add-to-cart-btn" onclick="addToCart({id:'m14',name:'กุหลาบขาวพรีเมียม (M)',price:1300,emoji:'🌹'})">เพิ่มลงตะกร้า</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 15: S 900฿ white flowers -->
+      <div class="menu-card" data-size="s">
+        <div class="menu-thumb">
+          <img src="images/menu-2.png" style="left:-200%;top:-128%;">
+        </div>
+        <span class="size-badge size-s">S</span>
+        <div class="product-body">
+          <div class="product-tag">ช่อดอกไม้</div>
+          <div class="product-name">ดอกขาวหิมะ</div>
+          <div class="product-desc">ดอกไม้สีขาวล้วน สะอาดตาและดูสง่างาม เหมาะทุกโอกาส</div>
+          <div class="product-footer">
+            <span class="product-price">฿900</span>
+            <button class="add-to-cart-btn" onclick="addToCart({id:'m15',name:'ดอกขาวหิมะ (S)',price:900,emoji:'🌸'})">เพิ่มลงตะกร้า</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 16: S 1,200฿ pink roses -->
+      <div class="menu-card" data-size="s">
+        <div class="menu-thumb">
+          <img src="images/menu-2.png" style="left:-300%;top:-128%;">
+        </div>
+        <span class="size-badge size-s">S</span>
+        <div class="product-body">
+          <div class="product-tag">ช่อดอกไม้</div>
+          <div class="product-name">กุหลาบชมพูริบบิ้น</div>
+          <div class="product-desc">กุหลาบชมพูสดตกแต่งด้วยริบบิ้น น่ารักและหวานเหมาะเป็นของขวัญ</div>
+          <div class="product-footer">
+            <span class="product-price">฿1,200</span>
+            <button class="add-to-cart-btn" onclick="addToCart({id:'m16',name:'กุหลาบชมพูริบบิ้น (S)',price:1200,emoji:'🌷'})">เพิ่มลงตะกร้า</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CATALOG SECTION -->
+<section style="background:#fff;">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">แคตตาล็อก</p>
+      <h2>ดูแคตตาล็อกเต็ม</h2>
+      <p>กดที่รูปเพื่อดูแบบเต็มจอ</p>
+    </div>
+    <div class="catalog-grid">
+      <img src="images/menu-1.png" alt="เมนูหน้า 1" class="catalog-img" onclick="openLightbox(this.src)">
+      <img src="images/menu-2.png" alt="เมนูหน้า 2" class="catalog-img" onclick="openLightbox(this.src)">
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="closeLightbox()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:999;align-items:center;justify-content:center;cursor:zoom-out;">
+  <img id="lightbox-img" style="max-width:92vw;max-height:92vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,0.5);">
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="images/logo-white.png" alt="Mooon Floral Studio" class="logo-img">
+      <p>ดอกไม้จัดแต่งอย่างสวยงามสำหรับทุกช่วงเวลา ทำด้วยความรัก ส่งด้วยความใส่ใจ</p>
+    </div>
+    <div class="footer-col">
+      <h4>ร้านค้า</h4>
+      <ul>
+        <li><a href="menu.html">เมนูดอกไม้</a></li>
+        <li><a href="shop.html">ร้านค้า</a></li>
+        <li><a href="contact.html">สั่งทำพิเศษ</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>บริษัท</h4>
+      <ul>
+        <li><a href="about.html">เกี่ยวกับเรา</a></li>
+        <li><a href="contact.html">ติดต่อเรา</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Mooon Floral. สงวนลิขสิทธิ์ทุกประการ</div>
+</footer>
+
+<!-- CART SIDEBAR -->
+<div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
+<aside class="cart-sidebar" id="cart-sidebar">
+  <div class="cart-header">
+    <h3>ตะกร้าสินค้า 🛒</h3>
+    <button class="cart-close" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cart-items"></div>
+  <div class="cart-footer">
+    <div class="cart-subtotal">
+      <span>ยอดรวม</span>
+      <span id="cart-subtotal">฿0</span>
+    </div>
+    <a href="checkout.html" class="btn btn-primary" style="width:100%;justify-content:center;display:flex;">ชำระเงิน →</a>
+    <button class="btn btn-outline" style="width:100%;justify-content:center;" onclick="closeCart()">ช้อปต่อ</button>
+  </div>
+</aside>
+
+<script src="js/main.js"></script>
+<script>
+  function filterSize(size) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', b.dataset.size === size));
+    document.querySelectorAll('.menu-card').forEach(c => {
+      c.style.display = (size === 'all' || c.dataset.size === size) ? '' : 'none';
+    });
+  }
+  function openLightbox(src) {
+    const lb = document.getElementById('lightbox');
+    document.getElementById('lightbox-img').src = src;
+    lb.style.display = 'flex';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').style.display = 'none';
+  }
+</script>
+</body>
+</html>
