@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ติดต่อเรา — Mooon Floral</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo"><img src="images/logo-white.png" alt="Mooon Floral Studio" class="logo-img logo-dark"></a>
+  <ul class="nav-links">
+    <li><a href="index.html">หน้าแรก</a></li>
+    <li><a href="shop.html">ร้านค้า</a></li>
+    <li><a href="about.html">เกี่ยวกับเรา</a></li>
+    <li><a href="contact.html">ติดต่อเรา</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="cart-btn" onclick="openCart()" aria-label="เปิดตะกร้า">
+      🛒
+      <span class="cart-count"></span>
+    </button>
+    <button class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <h1>ติดต่อเรา</h1>
+  <p>มีคำถาม สั่งทำพิเศษ หรืออยากทักทาย — เรายินดีรับฟังเสมอ</p>
+</div>
+
+<!-- CONTACT -->
+<section>
+  <div class="contact-grid">
+
+    <div class="contact-info">
+      <p class="section-eyebrow">ทักทายเรา</p>
+      <h2>เราพร้อมช่วยเหลือคุณ</h2>
+      <p>ไม่ว่าจะเป็นการวางแผนงานแต่งงาน ของขวัญด่วน หรือเพียงแค่อยากคุยเรื่องดอกไม้ — ทีมงานของเรายินดีช่วยเสมอ</p>
+
+      <div class="contact-detail">
+        <div class="contact-detail-icon">📍</div>
+        <div class="contact-detail-text">
+          <strong>ที่อยู่สตูดิโอ</strong>
+          <span>12 ซอยดอกไม้ แขวงลาดพร้าว<br>เขตลาดพร้าว กรุงเทพฯ 10230</span>
+        </div>
+      </div>
+
+      <div class="contact-detail">
+        <div class="contact-detail-icon">🕐</div>
+        <div class="contact-detail-text">
+          <strong>เวลาทำการ</strong>
+          <span>จันทร์ – ศุกร์: 8.00 – 18.00 น.<br>เสาร์: 9.00 – 16.00 น.<br>อาทิตย์: ปิด</span>
+        </div>
+      </div>
+
+      <div class="contact-detail">
+        <div class="contact-detail-icon">📞</div>
+        <div class="contact-detail-text">
+          <strong>โทรศัพท์</strong>
+          <span>+66-628965926</span>
+        </div>
+      </div>
+
+      <div class="contact-detail">
+        <div class="contact-detail-icon">✉️</div>
+        <div class="contact-detail-text">
+          <strong>อีเมล</strong>
+          <span>hello@mooonfloral.com</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-card">
+      <p class="section-eyebrow" style="margin-bottom:0.5rem;">ส่งข้อความ</p>
+      <h2 style="font-size:1.5rem;margin-bottom:1.5rem;">เราช่วยอะไรคุณได้บ้าง?</h2>
+      <form id="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="first-name">ชื่อ</label>
+            <input type="text" id="first-name" placeholder="มุน" required />
+          </div>
+          <div class="form-group">
+            <label for="last-name">นามสกุล</label>
+            <input type="text" id="last-name" placeholder="พาร์ค" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">อีเมล</label>
+          <input type="email" id="email" placeholder="moon@example.com" required />
+        </div>
+        <div class="form-group">
+          <label for="phone">เบอร์โทรศัพท์ (ไม่บังคับ)</label>
+          <input type="tel" id="phone" placeholder="08x-xxx-xxxx" />
+        </div>
+        <div class="form-group">
+          <label for="subject">หัวข้อ</label>
+          <select id="subject">
+            <option value="">เลือกหัวข้อ…</option>
+            <option>สอบถามทั่วไป</option>
+            <option>สั่งทำพิเศษ / งานแต่งงาน</option>
+            <option>สอบถามการจัดส่ง</option>
+            <option>ปัญหาเกี่ยวกับคำสั่งซื้อ</option>
+            <option>อื่นๆ</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">ข้อความ</label>
+          <textarea id="message" placeholder="บอกเราว่าคุณต้องการอะไร…" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">ส่งข้อความ →</button>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="images/logo-white.png" alt="Mooon Floral Studio" class="logo-img">
+      <p>ดอกไม้จัดแต่งอย่างสวยงามสำหรับทุกช่วงเวลา ทำด้วยความรัก ส่งด้วยความใส่ใจ</p>
+    </div>
+    <div class="footer-col">
+      <h4>ร้านค้า</h4>
+      <ul>
+        <li><a href="shop.html">ดอกไม้ทั้งหมด</a></li>
+        <li><a href="shop.html">ช่อดอกไม้</a></li>
+        <li><a href="shop.html">จัดแจกัน</a></li>
+        <li><a href="shop.html">ตามฤดูกาล</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>บริษัท</h4>
+      <ul>
+        <li><a href="about.html">เกี่ยวกับเรา</a></li>
+        <li><a href="contact.html">ติดต่อเรา</a></li>
+        <li><a href="contact.html">สั่งทำพิเศษ</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Mooon Floral. สงวนลิขสิทธิ์ทุกประการ</div>
+</footer>
+
+<!-- CART SIDEBAR -->
+<div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
+<aside class="cart-sidebar" id="cart-sidebar">
+  <div class="cart-header">
+    <h3>ตะกร้าสินค้า 🛒</h3>
+    <button class="cart-close" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cart-items"></div>
+  <div class="cart-footer">
+    <div class="cart-subtotal">
+      <span>ยอดรวม</span>
+      <span id="cart-subtotal">฿0</span>
+    </div>
+    <a href="checkout.html" class="btn btn-primary" style="width:100%;justify-content:center;display:flex;">ชำระเงิน →</a>
+    <button class="btn btn-outline" style="width:100%;justify-content:center;" onclick="closeCart()">ช้อปต่อ</button>
+  </div>
+</aside>
+
+<script src="js/main.js"></script>
+</body>
+</html>

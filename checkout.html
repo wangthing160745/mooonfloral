@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ชำระเงิน — Mooon Floral</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo"><img src="images/logo-white.png" alt="Mooon Floral Studio" class="logo-img logo-dark"></a>
+  <ul class="nav-links">
+    <li><a href="index.html">หน้าแรก</a></li>
+    <li><a href="shop.html">ร้านค้า</a></li>
+    <li><a href="about.html">เกี่ยวกับเรา</a></li>
+    <li><a href="contact.html">ติดต่อเรา</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="cart-btn" onclick="openCart()" aria-label="เปิดตะกร้า">
+      🛒
+      <span class="cart-count"></span>
+    </button>
+    <button class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <h1>ชำระเงิน</h1>
+  <p>เกือบเสร็จแล้ว — กรอกข้อมูลและเราจะจัดส่งดอกไม้ถึงคุณทันที</p>
+</div>
+
+<section>
+  <div class="checkout-grid">
+
+    <div>
+      <form id="checkout-form">
+
+        <div class="checkout-form-card" style="margin-bottom:1.5rem;">
+          <h2>ข้อมูลการจัดส่ง</h2>
+          <div class="form-row">
+            <div class="form-group">
+              <label>ชื่อ</label>
+              <input type="text" placeholder="มุน" required />
+            </div>
+            <div class="form-group">
+              <label>นามสกุล</label>
+              <input type="text" placeholder="พาร์ค" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>อีเมล</label>
+            <input type="email" placeholder="moon@example.com" required />
+          </div>
+          <div class="form-group">
+            <label>เบอร์โทรศัพท์</label>
+            <input type="tel" placeholder="08x-xxx-xxxx" required />
+          </div>
+          <div class="form-group">
+            <label>ที่อยู่</label>
+            <input type="text" placeholder="บ้านเลขที่ ซอย ถนน" required />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>แขวง / ตำบล</label>
+              <input type="text" placeholder="ลาดพร้าว" required />
+            </div>
+            <div class="form-group">
+              <label>รหัสไปรษณีย์</label>
+              <input type="text" placeholder="10230" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>วันที่ต้องการรับ</label>
+            <input type="date" required />
+          </div>
+          <div class="form-group">
+            <label>ข้อความในการ์ด (ไม่บังคับ)</label>
+            <textarea placeholder="เพิ่มข้อความเขียนด้วยมือ…"></textarea>
+          </div>
+        </div>
+
+        <div class="checkout-form-card">
+          <h2>ข้อมูลการชำระเงิน</h2>
+          <div class="form-group">
+            <label>ชื่อบนบัตร</label>
+            <input type="text" placeholder="มุน พาร์ค" required />
+          </div>
+          <div class="form-group">
+            <label>หมายเลขบัตร</label>
+            <input type="text" placeholder="•••• •••• •••• ••••" maxlength="19" required />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>วันหมดอายุ</label>
+              <input type="text" placeholder="MM / ปป" maxlength="7" required />
+            </div>
+            <div class="form-group">
+              <label>CVV</label>
+              <input type="text" placeholder="•••" maxlength="4" required />
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:0.5rem;font-size:1rem;padding:1rem 2rem;">
+            สั่งซื้อเลย →
+          </button>
+          <p style="text-align:center;font-size:0.8rem;color:var(--gray);margin-top:1rem;">
+            🔒 ข้อมูลการชำระเงินของคุณถูกเข้ารหัสและปลอดภัย
+          </p>
+        </div>
+
+      </form>
+    </div>
+
+    <!-- ORDER SUMMARY -->
+    <div class="order-summary-card">
+      <h3>สรุปคำสั่งซื้อ</h3>
+      <div id="order-items"></div>
+      <hr class="summary-divider" />
+      <div class="summary-item">
+        <span>ยอดสินค้า</span>
+        <span id="order-subtotal">฿0</span>
+      </div>
+      <div class="summary-item">
+        <span>ค่าจัดส่ง</span>
+        <span id="order-shipping">฿350</span>
+      </div>
+      <hr class="summary-divider" />
+      <div class="summary-total">
+        <span>ยอดรวมทั้งหมด</span>
+        <span id="order-total">฿0</span>
+      </div>
+      <p style="font-size:0.78rem;color:var(--gray);margin-top:1rem;text-align:center;">
+        ส่งฟรีเมื่อสั่งซื้อครบ ฿2,800
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="images/logo-white.png" alt="Mooon Floral Studio" class="logo-img">
+      <p>ดอกไม้จัดแต่งอย่างสวยงามสำหรับทุกช่วงเวลา ทำด้วยความรัก ส่งด้วยความใส่ใจ</p>
+    </div>
+    <div class="footer-col">
+      <h4>ร้านค้า</h4>
+      <ul>
+        <li><a href="shop.html">ดอกไม้ทั้งหมด</a></li>
+        <li><a href="shop.html">ช่อดอกไม้</a></li>
+        <li><a href="shop.html">จัดแจกัน</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>บริษัท</h4>
+      <ul>
+        <li><a href="about.html">เกี่ยวกับเรา</a></li>
+        <li><a href="contact.html">ติดต่อเรา</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Mooon Floral. สงวนลิขสิทธิ์ทุกประการ</div>
+</footer>
+
+<!-- CART SIDEBAR -->
+<div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
+<aside class="cart-sidebar" id="cart-sidebar">
+  <div class="cart-header">
+    <h3>ตะกร้าสินค้า 🛒</h3>
+    <button class="cart-close" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cart-items"></div>
+  <div class="cart-footer">
+    <div class="cart-subtotal">
+      <span>ยอดรวม</span>
+      <span id="cart-subtotal">฿0</span>
+    </div>
+    <a href="checkout.html" class="btn btn-primary" style="width:100%;justify-content:center;display:flex;">ชำระเงิน →</a>
+    <button class="btn btn-outline" style="width:100%;justify-content:center;" onclick="closeCart()">ช้อปต่อ</button>
+  </div>
+</aside>
+
+<script src="js/main.js"></script>
+</body>
+</html>
